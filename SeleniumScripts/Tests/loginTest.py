@@ -1,4 +1,4 @@
-from LoginPageStructure import *
+from Pages.LoginPageStructure import *
 
 # go to the login page
 gotourl(url)

@@ -1,4 +1,4 @@
-from Base_page_structure import *
+from BasePage.Base_page_structure import *
 
 # Variables
 emailValue = 'b.benichou@bakerross.co.uk'
