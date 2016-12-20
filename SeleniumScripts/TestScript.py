@@ -14,9 +14,10 @@ driver.find_element_by_xpath("/html/body/div/div[2]/div/div[1]/div/div/div/ul[2]
 driver.implicitly_wait(5)
 driver.find_element_by_css_selector("body > div > div.main-view.ng-scope > div > div.ng-scope > div > div > div > ul.nav.pull-right > li.ng-scope > grafana-simple-panel > div > form > ul > li.dropdown.open > ul > li:nth-child(9) > a").click()
 driver.implicitly_wait(1)
-#elementtest = driver.find_element_by_xpath("/html/body/div/div[2]/div/div[5]/div[1]/div/div[2]/div[1]/panel-loader/grafana-panel-graph/grafana-panel/div/div[2]/ng-transclude/div[1]/div[2]/section/div[1]/div[2]/a").text
-elementtest = driver.find_element_by_xpath("/html/body/div/div[2]/div/div[5]/div[1]/div/div[2]/div[1]/panel-loader/grafana-panel-graph/grafana-panel/div/div[2]/ng-transclude/div[1]/div[2]/section").find_all("a").text
+elementtest = driver.find_element_by_xpath("/html/body/div/div[2]/div/div[5]/div[1]/div/div[2]/div[1]/panel-loader/grafana-panel-graph/grafana-panel/div/div[2]/ng-transclude/div[1]/div[2]/section/div[1]/div[2]/a").text
+#elementtestval = driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div[5]/div[1]/div/div[2]/div[1]/panel-loader/grafana-panel-graph/grafana-panel/div/div[2]/ng-transclude/div[1]/div[2]/section/div[1]/div[3]").text
 print(elementtest)
-#f1 = open('L:\\Work\\testfile', 'w+')
-#print(elementtest, file=f1)
-#driver.quit()
+#line = str("%s;%s" % elementtest, elementtestval)
+#f1 = open('L:\\Work\\testfile.csv', 'w+')
+#print(line, file=f1)
+driver.quit()
