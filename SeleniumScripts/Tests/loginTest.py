@@ -1,5 +1,7 @@
 from Pages.LoginPageStructure import *
 
+log()
+
 # go to the login page
 gotourl(url)
 impwait()
