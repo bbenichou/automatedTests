@@ -1,4 +1,4 @@
-from Pages.LoginPageStructure import *
+from Pages.LoginPage import *
 
 log()
 

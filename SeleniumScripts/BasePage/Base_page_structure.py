@@ -1,7 +1,13 @@
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 import logging
+
+# Variables
 driver = webdriver.Chrome("C:\\seleniumDriver\\chromedriver_win32\\chromedriver.exe")
-timeout = 30
+
+# Locators
+
+# Actions
 
 def impwait():
     driver.implicitly_wait(5)

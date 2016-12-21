@@ -5,7 +5,7 @@ emailValue = 'b.benichou@bakerross.co.uk'
 passValue = 'testtest'
 url = ("https://www.bakerross.co.uk/customer/account/login/")
 
-# Assertion
+# Assertions
 nameAssert = "Ben"
 
 # Locators
