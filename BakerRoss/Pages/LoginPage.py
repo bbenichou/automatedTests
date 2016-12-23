@@ -1,8 +1,8 @@
 from BasePage.Base_page_structure import *
 
 # Variables
-emailValue = 'b.benichou@bakerross.co.uk'
-passValue = 'testtest'
+email = getloginvalue()
+password = getpassvalue()
 path = ("/customer/account/login/")
 
 # Assertions
@@ -18,10 +18,10 @@ headerUsernameXpath = "//*[@id='page']/div[1]/div/ul[1]/li[1]"
 
 # Actions
 def inputemail():
-    driver.find_element_by_xpath(emailXpath).send_keys(emailValue)
+    driver.find_element_by_xpath(emailXpath).send_keys(email)
 
 def inputpass():
-    driver.find_element_by_xpath(passXpath).send_keys(passValue)
+    driver.find_element_by_xpath(passXpath).send_keys(password)
 
 def clicklogin():
     driver.find_element_by_xpath(loginButtonXpath).click()

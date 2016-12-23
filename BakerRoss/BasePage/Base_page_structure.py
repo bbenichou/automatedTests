@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 driver = webdriver.Chrome("C:\\seleniumDriver\\chromedriver_win32\\chromedriver.exe")
 autotestenvironment = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\env.xml'
 autotestenvchoice = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\env_choice.csv'
+user_catalogue = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\user_catalogue.csv'
 
 # Locators
 firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
@@ -19,6 +20,13 @@ firstBoxPPlinkXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[
 megamenufirstlinkXpath = "//*[@id='custommenu-nav']/li[1]/a[1]"
 
 # Actions
+def getcountry():
+    with open(autotestenvchoice, "r") as file:
+        csv_reader = csv.DictReader(file)
+        for line in csv_reader:
+            country = line['country']
+            return country
+
 def impwait():
     driver.implicitly_wait(5)
 
@@ -56,3 +64,21 @@ def gotoprodurl():
     hover.perform()
     driver.find_element_by_xpath(firstBoxPPlinkXpath).click()
     impwait()
+
+def getloginvalue():
+    site = getcountry()
+    with open(user_catalogue, "r") as file:
+        csv_reader = csv.DictReader(file)
+        row = [row for row in csv_reader if row['country'] == site]
+        for rows in row:
+            emailValue = rows['login']
+            return emailValue
+
+def getpassvalue():
+    site = getcountry()
+    with open(user_catalogue, "r") as file:
+        csv_reader = csv.DictReader(file)
+        row = [row for row in csv_reader if row['country'] == site]
+        for rows in row:
+            passValue = rows['password']
+            return passValue
