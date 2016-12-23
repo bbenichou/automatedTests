@@ -1,6 +1,6 @@
 from Pages.LoginPage import *
 
-log()
+createlogfile()
 # go to the login page
 gotourl(path)
 impwait()

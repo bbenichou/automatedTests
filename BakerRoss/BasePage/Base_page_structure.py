@@ -5,11 +5,20 @@ import logging
 import csv
 from bs4 import BeautifulSoup
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+import openpyxl
+import datetime
+import sys
+import os
+
+
+
 
 # Variables
 autotestenvironment = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsConfiguration\\env.xml'
 autotestenvchoice = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
 user_catalogue = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
+chromedriver = "C:\\seleniumDriver\\chromedriver_win32\\chromedriver.exe"
+firefoxdriver = 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'
 
 # Locators
 firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
@@ -22,9 +31,9 @@ with open(autotestenvchoice, "r") as file:
     for line in csv_reader:
         browser = line['browser']
         if browser == 'Chrome':
-            driver = webdriver.Chrome("C:\\seleniumDriver\\chromedriver_win32\\chromedriver.exe")
+            driver = webdriver.Chrome(chromedriver)
         if browser == 'Firefox':
-            binary = FirefoxBinary(r'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe')
+            binary = FirefoxBinary(firefoxdriver)
             driver = webdriver.Firefox(firefox_binary=binary)
 
 # Actions
@@ -38,8 +47,18 @@ def getcountry():
 def impwait():
     driver.implicitly_wait(5)
 
-def log():
-    logging.basicConfig(filename='L:\\Work\\testlogfile.cslog', level=logging.DEBUG)
+def createlogfile():
+    logfilename = datetime.datetime.now().strftime('%Y-%m-%d-%H.%M.%S') + '_' + os.path.splitext(os.path.basename(sys.argv[0]))[0] + '_log.xlsx'
+    wb = openpyxl.Workbook()
+    wb.save(logfilename)
+    ws = wb.worksheets[0]
+    ws['A1'] = 'Date'
+    ws['B1'] = 'Test'
+    ws['C1'] = 'Status'
+    ws['D1'] = 'Details'
+    ws['A2'] = datetime.datetime.now().strftime('%Y-%m-%d-%H.%M.%S')
+    ws ['B2'] = os.path.splitext(os.path.basename(sys.argv[0]))[0]
+    wb.save(logfilename)
 
 def getdomain():
     with open(autotestenvchoice,"r") as file:
