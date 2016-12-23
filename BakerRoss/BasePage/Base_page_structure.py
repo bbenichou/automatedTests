@@ -7,9 +7,9 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 # Variables
-autotestenvironment = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\env.xml'
-autotestenvchoice = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\env_choice.csv'
-user_catalogue = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\user_catalogue.csv'
+autotestenvironment = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsConfiguration\\env.xml'
+autotestenvchoice = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
+user_catalogue = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
 
 # Locators
 firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
