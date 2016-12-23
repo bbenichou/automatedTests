@@ -1,15 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 import logging
 import csv
 from bs4 import BeautifulSoup
-
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 # Variables
-driver = webdriver.Chrome("C:\\seleniumDriver\\chromedriver_win32\\chromedriver.exe")
 autotestenvironment = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\env.xml'
 autotestenvchoice = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\env_choice.csv'
 user_catalogue = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\user_catalogue.csv'
@@ -18,6 +15,17 @@ user_catalogue = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\user_catal
 firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
 firstBoxPPlinkXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/div[2]/form/a"
 megamenufirstlinkXpath = "//*[@id='custommenu-nav']/li[1]/a[1]"
+
+# Load the browser defined in env_choice
+with open(autotestenvchoice, "r") as file:
+    csv_reader = csv.DictReader(file)
+    for line in csv_reader:
+        browser = line['browser']
+        if browser == 'Chrome':
+            driver = webdriver.Chrome("C:\\seleniumDriver\\chromedriver_win32\\chromedriver.exe")
+        if browser == 'Firefox':
+            binary = FirefoxBinary(r'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe')
+            driver = webdriver.Firefox(firefox_binary=binary)
 
 # Actions
 def getcountry():
