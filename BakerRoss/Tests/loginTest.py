@@ -3,7 +3,7 @@ from Pages.LoginPage import *
 log()
 
 # go to the login page
-gotourl(url)
+gotourl(path)
 impwait()
 
 # type email and password then click on the login button

@@ -3,7 +3,7 @@ from BasePage.Base_page_structure import *
 # Variables
 emailValue = 'b.benichou@bakerross.co.uk'
 passValue = 'testtest'
-url = ("https://www.bakerross.co.uk/customer/account/login/")
+path = ("/customer/account/login/")
 
 # Assertions
 nameAssert = "Ben"
