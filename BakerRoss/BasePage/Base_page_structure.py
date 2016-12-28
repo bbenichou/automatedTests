@@ -13,8 +13,6 @@ import unittest
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from io import StringIO
-import io
-import six
 
 # Variables
 autotestenvironment = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsConfiguration\\env.xml'

@@ -2,9 +2,6 @@
 from Tests.loginTest import *
 from Tests.ProdPageTest import *
 from TestsConfiguration import HTMLTestRunner
-from io import StringIO
-import io
-import six
 
 #define testloader variable for each tests
 test1 = unittest.TestLoader().loadTestsFromTestCase(login)
@@ -13,10 +10,12 @@ test2 = unittest.TestLoader().loadTestsFromTestCase(productpage)
 #group all tests variable into a suite
 all_tests = unittest.TestSuite([test1,test2])
 
-#run the suite
+# run the suite with default unittest
 #unittest.TextTestRunner(verbosity=2).run(all_tests)
 
-outfile = open("C:\Report.html", "w")
+#run the suite with htmltestrunner
+
+outfile = open("C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestSuite\\TestResults\\Report_testSuiteAll.html", "w")
 
 runner = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
