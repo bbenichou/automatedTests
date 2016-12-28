@@ -1,25 +1,25 @@
 from Pages.LoginPage import *
 
-createlogfile()
-# go to the login page
-gotourl(path)
-impwait()
+class login(unittest.TestCase):
+    def test_login(self):
 
-# type email and password then click on the login button
-inputemail()
-inputpass()
-clicklogin()
-impwait()
+        #createlogfile()
+        # go to the login page
+        gotourl(path)
+        impwait()
 
-# Check if loggedin
-assertloggedin()
+        # type email and password then click on the login button
+        inputemail()
+        inputpass()
+        clicklogin()
+        impwait()
 
-# Logout
-logout()
-impwait()
+        # Check if loggedin
+        assertloggedin()
 
-# Check if the username is not showing
-assertloggedout()
+        # Logout
+        logout()
+        impwait()
 
-# Quit
-driver.quit()
+        # Check if the username is not showing
+        assertloggedout()

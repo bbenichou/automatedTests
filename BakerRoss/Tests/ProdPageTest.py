@@ -1,14 +1,12 @@
 from Pages.ProductPage import *
 
-# Variables
+class productpage(unittest.TestCase):
+    def test_productpage(self):
 
+        #go to the product page
+        gotoprodurl()
 
-# go to the product page
-gotoprodurl()
+        # add each sku to the basket and check if the top cart is updated
+        addtobasket()
+        assertaddtobasket()
 
-# add each sku to the basket and check if the top cart is updated
-addtobasket()
-assertaddtobasket()
-
-# Quit
-driver.quit()

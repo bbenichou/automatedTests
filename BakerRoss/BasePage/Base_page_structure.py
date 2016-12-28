@@ -9,9 +9,9 @@ import openpyxl
 import datetime
 import sys
 import os
-
-
-
+import unittest
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 # Variables
 autotestenvironment = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsConfiguration\\env.xml'
@@ -19,6 +19,7 @@ autotestenvchoice = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRo
 user_catalogue = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
 chromedriver = "C:\\seleniumDriver\\chromedriver_win32\\chromedriver.exe"
 firefoxdriver = 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'
+internetexplorerdriver = "C:\\seleniumDriver\\ie_driver\\IEDriverServer.exe"
 
 # Locators
 firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
@@ -35,6 +36,8 @@ with open(autotestenvchoice, "r") as file:
         if browser == 'Firefox':
             binary = FirefoxBinary(firefoxdriver)
             driver = webdriver.Firefox(firefox_binary=binary)
+        if browser == 'IE':
+            driver = webdriver.Ie(internetexplorerdriver)
 
 # Actions
 def getcountry():
