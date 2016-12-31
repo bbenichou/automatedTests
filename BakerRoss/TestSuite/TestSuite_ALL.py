@@ -15,7 +15,7 @@ all_tests = unittest.TestSuite([test1,test2])
 
 #run the suite with htmltestrunner
 
-outfile = open("C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestSuite\\TestResults\\Report_testSuiteAll.html", "w")
+outfile = open(localenv + '\\automatedTests\\BakerRoss\\TestSuite\\TestResults\\Report_testSuiteAll.html', "w")
 
 runner = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
