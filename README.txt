@@ -3,7 +3,8 @@
 Python 3.5.2+ | https://www.python.org/downloads/
 latest version of pip | windows command line: "python -m pip install --upgrade pip"
 latest selenium librairy | windows command line: "pip install -U selenium"
-latest BeautifulSoup library | windows command line:"pip install -U BeautifulSoup"
+latest BeautifulSoup library | windows command line:"pip install -U beautifulsoup4"
+latest openpyxl library | windows command line:"pip install -U openpyxl"
 
 Pycharm | https://www.jetbrains.com/pycharm/download/#section=windows
 

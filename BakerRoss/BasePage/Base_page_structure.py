@@ -15,12 +15,14 @@ from selenium.webdriver.common.by import By
 from io import StringIO
 
 # Variables
-autotestenvironment = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsConfiguration\\env.xml'
-autotestenvchoice = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
-user_catalogue = 'C:\\Users\\bb4342\\PycharmProjects\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
-chromedriver = "C:\\seleniumDriver\\chromedriver_win32\\chromedriver.exe"
+localenv = 'C:\\Users\\Ben\\PycharmProjects'
+localdriver = 'C:\\seleniumDriver'
+autotestenvironment = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\env.xml'
+autotestenvchoice = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
+user_catalogue = localenv + '\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
+chromedriver = localdriver + '\\chromedriver_win32\\chromedriver.exe'
 firefoxdriver = 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'
-internetexplorerdriver = "C:\\seleniumDriver\\ie_driver\\IEDriverServer.exe"
+internetexplorerdriver = localdriver + '\\ie_driver\\IEDriverServer.exe'
 
 # Locators
 firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
