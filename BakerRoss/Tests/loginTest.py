@@ -3,7 +3,6 @@ from Pages.LoginPage import *
 class login(unittest.TestCase):
     def test_login(self):
 
-        #createlogfile()
         # go to the login page
         gotourl(path)
         impwait()
@@ -12,7 +11,6 @@ class login(unittest.TestCase):
         inputemail()
         inputpass()
         clicklogin()
-        impwait()
 
         # Check if loggedin
         assertloggedin()

@@ -15,16 +15,14 @@ from selenium.webdriver.common.by import By
 from io import StringIO
 from  TestsConfiguration.local_env import *
 
+
 # Variables
-autotestenvironment = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\env.xml'
+autotestenvironment = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\BakerRoss_env.xml'
 autotestenvchoice = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
 user_catalogue = localenv + '\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
 
-
 # Locators
-firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
-firstBoxPPlinkXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/div[2]/form/a"
-megamenufirstlinkXpath = "//*[@id='custommenu-nav']/li[1]/a[1]"
+
 
 # Load the browser defined in env_choice
 with open(autotestenvchoice, "r") as file:
@@ -80,19 +78,6 @@ def gotourl(path):
     url = getdomain() + path
     driver.get(url)
     driver.maximize_window()
-
-def gotoprodurl():
-    getdomain()
-    url = getdomain()
-    driver.get(url)
-    driver.maximize_window()
-    impwait()
-    driver.find_element_by_xpath(megamenufirstlinkXpath).click()
-    impwait()
-    firstBoxPP = driver.find_element_by_xpath(firstBoxPPimgXpath)
-    hover = ActionChains(driver).move_to_element(firstBoxPP)
-    hover.perform()
-    driver.find_element_by_xpath(firstBoxPPlinkXpath).click()
     impwait()
 
 def getloginvalue():

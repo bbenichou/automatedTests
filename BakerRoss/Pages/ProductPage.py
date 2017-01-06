@@ -7,11 +7,28 @@ listingPagePath = ("/arts-and-crafts")
 # Locators
 addtobasketbuttonsClass = "btn-cart"
 itemstopcartXpath = "//*[@id='cartHeader']/span"
+firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
+firstBoxPPlinkXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/div[2]/form/a"
+megamenufirstlinkXpath = "//*[@id='custommenu-nav']/li[1]/a[1]"
 
 # Assertions
 
 
 # Actions
+def gotoprodurl():
+    getdomain()
+    url = getdomain()
+    driver.get(url)
+    driver.maximize_window()
+    impwait()
+    driver.find_element_by_xpath(megamenufirstlinkXpath).click()
+    impwait()
+    firstBoxPP = driver.find_element_by_xpath(firstBoxPPimgXpath)
+    hover = ActionChains(driver).move_to_element(firstBoxPP)
+    hover.perform()
+    driver.find_element_by_xpath(firstBoxPPlinkXpath).click()
+    impwait()
+
 def addtobasket():
     addbuttons = driver.find_elements_by_class_name(addtobasketbuttonsClass)
     addbuttons_len = len(addbuttons)
