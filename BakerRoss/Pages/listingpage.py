@@ -1,19 +1,20 @@
 from BasePageStructure.Base_page_structure import *
 
+class ListingPage(BasePage):
 
-# Variables
+    # Variables
 
-# Assertions
-megamenufirstlinkXpath = "//*[@id='custommenu-nav']/li[1]/a[1]"
+    # Assertions
+    megamenufirstlinkXpath = "//*[@id='custommenu-nav']/li[1]/a[1]"
 
-# Locators
+    # Locators
 
-# Actions
-def gotolistingpage():
-    getdomain()
-    url = getdomain()
-    driver.get(url)
-    driver.maximize_window()
-    impwait()
-    driver.find_element_by_xpath(megamenufirstlinkXpath).click()
-    impwait()
+    # Actions
+    def gotolistingpage(self):
+        self.getdomain()
+        url = self.getdomain()
+        self.driver.get(url)
+        self.driver.maximize_window()
+        self.impwait()
+        self.driver.find_element_by_xpath(self.megamenufirstlinkXpath).click()
+        self.impwait()

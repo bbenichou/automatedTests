@@ -1,6 +1,10 @@
-from Pages.QuickView import *
+from Pages.QuickViewPage import *
+import unittest
 
-class quickview(unittest.TestCase):
+
+class Quick(unittest.TestCase, QuickView):
+
     def test_quickview(self):
-        openquickview()
-        assertquickviewopen()
+
+        QuickView.openquickview(self)
+        QuickView.assertquickviewopen(self)

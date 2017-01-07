@@ -1,13 +1,14 @@
-from Pages.Confirmationpopup import *
+from Pages.ConfirmationpopuPage import *
+import unittest
 
-class confirmationpopup(unittest.TestCase):
+class confirmation(unittest.TestCase, ConfirmationPopUp):
     def test_confirmationpopup(self):
 
         #
-        openconfirmationpopuponeitem()
+        ConfirmationPopUp.openconfirmationpopuponeitem(self)
 
         #
-        assertconfirmoneitem()
+        ConfirmationPopUp.assertconfirmoneitem(self)
 
         #
-        closeconfirmationpopup()
+        ConfirmationPopUp.closeconfirmationpopup(self)

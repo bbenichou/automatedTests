@@ -1,23 +1,24 @@
 from Pages.LoginPage import *
 
-class login(unittest.TestCase):
+
+class Login(unittest.TestCase, LoginPage):
 
     def test_login(self):
         # go to the login page
-        BasePage.gotourl(LoginPage.path)
-        BasePage.impwait()
+        BasePage.gotourl(self, LoginPage.path)
+        BasePage.impwait(self)
 
         # type email and password then click on the login button
-        LoginPage.inputemail()
-        LoginPage.inputpass()
-        LoginPage.clicklogin()
+        LoginPage.inputemail(self)
+        LoginPage.inputpass(self)
+        LoginPage.clicklogin(self)
 
         # Check if loggedin
-        LoginPage.assertloggedin()
+        LoginPage.assertloggedin(self)
 
         # Logout
-        LoginPage.logout()
-        LoginPage.impwait()
+        LoginPage.logout(self)
+        LoginPage.impwait(self)
 
         # Check if the username is not showing
-        LoginPage.assertloggedout()
+        LoginPage.assertloggedout(self)

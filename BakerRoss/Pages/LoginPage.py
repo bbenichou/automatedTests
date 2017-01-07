@@ -1,5 +1,6 @@
 from BasePageStructure.Base_page_structure import *
 
+
 class LoginPage(BasePage):
 
     # Variables
@@ -17,9 +18,6 @@ class LoginPage(BasePage):
     headerUsernameXpath = "//*[@id='page']/div[1]/div/ul[1]/li[1]"
 
     # Methods
-    def __init__(self, autotestenvironment, autotestenvchoice, user_catalogue, driver):
-        BasePage.__init__(self, autotestenvironment, autotestenvchoice, user_catalogue, driver)
-
     def inputemail(self):
         email = BasePage.getloginvalue(self)
         self.driver.find_element_by_xpath(self.emailXpath).send_keys(email)

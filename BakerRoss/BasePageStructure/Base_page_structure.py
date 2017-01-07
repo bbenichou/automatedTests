@@ -20,22 +20,25 @@ class BasePage(object):
 
     def __init__(self, autotestenvironment, autotestenvchoice, user_catalogue, driver):
         # Variables
-        self.autotestenvironment = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\BakerRoss_env.xml'
-        self.autotestenvchoice = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
-        self.user_catalogue = localenv + '\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
-#    def loadenv(self):
-        # Load the browser defined in env_choice
-        with open(self.autotestenvchoice, "r") as file:
-            csv_reader = csv.DictReader(file)
-            for line in csv_reader:
-                browser = line['browser']
-                if browser == 'Chrome':
-                    self.driver = webdriver.Chrome(chromedriver)
-                if browser == 'Firefox':
-                    binary = FirefoxBinary(firefoxdriver)
-                    self.driver = webdriver.Firefox(firefox_binary=binary)
-                if browser == 'IE':
-                    self.driver = webdriver.Ie(internetexplorerdriver)
+        self.autotestenvironment = autotestenvironment
+        self.autotestenvchoice = autotestenvchoice
+        self.user_catalogue = user_catalogue
+        self.driver = driver
+    autotestenvironment = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\BakerRoss_env.xml'
+    autotestenvchoice = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
+    user_catalogue = localenv + '\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
+    # Load the browser defined in env_choice
+    with open(autotestenvchoice, "r") as file:
+        csv_reader = csv.DictReader(file)
+        for line in csv_reader:
+            browser = line['browser']
+            if browser == 'Chrome':
+                driver = webdriver.Chrome(chromedriver)
+            if browser == 'Firefox':
+                binary = FirefoxBinary(firefoxdriver)
+                driver = webdriver.Firefox(firefox_binary=binary)
+            if browser == 'IE':
+                driver = webdriver.Ie(internetexplorerdriver)
 
     # Methods
     def getcountry(self):
@@ -68,8 +71,8 @@ class BasePage(object):
                 environment = line['env']
                 country = line['country']
                 soup = BeautifulSoup(open(self.autotestenvironment),'html.parser')
-                for a in soup.find_all("env", attrs= {"id" : environment}):
-                    for b in a.find_all("country", attrs= {"id": country}):
+                for a in soup.find_all("env", attrs={"id": environment}):
+                    for b in a.find_all("country", attrs={"id": country}):
                             domain = b.text
                             return domain
 
