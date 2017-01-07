@@ -1,4 +1,4 @@
-from BasePage.Base_page_structure import *
+from BasePageStructure.Base_page_structure import *
 
 
 # Variables

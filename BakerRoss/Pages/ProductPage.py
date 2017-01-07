@@ -1,4 +1,4 @@
-from BasePage.Base_page_structure import *
+from BasePageStructure.Base_page_structure import *
 from Pages.Confirmationpopup import *
 
 # Variables
@@ -34,7 +34,7 @@ def addtobasket():
     addbuttons_len = len(addbuttons)
     for i in range(0,addbuttons_len):
         driver.find_elements_by_class_name(addtobasketbuttonsClass).__getitem__(i).click()
-        confpopupclickcontinueshopping()
+        closeconfirmationpopup()
         driver.switch_to_default_content()
 
 def assertaddtobasket():
