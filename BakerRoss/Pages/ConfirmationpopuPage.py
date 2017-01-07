@@ -9,6 +9,7 @@ class ConfirmationPopUp(QuickView):
     firstskunamexpath ="//*[@id='product_addtocart_form']/div[3]/div[3]/div[1]/div[1]/span[1]"
     firstskunameconfirmationmessagexpath ="//*[@id='added-products-details']/div[2]/ul/li/span"
     addtobasketbuttonsClass = "btn-cart"
+    skuname = ''
 
     # Locators
     viewbasketbuttonXpath = "//*[@id='quickorder-checkout-link']/span"
@@ -21,6 +22,7 @@ class ConfirmationPopUp(QuickView):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, self.addtobasketbuttonsClass)))
         skuname = self.driver.find_element_by_xpath(self.firstskunamexpath).text
         self.driver.find_element_by_xpath(self.firstaddtobasketbuttonxpath).click()
+        return skuname
 
     def closeconfirmationpopup(self):
         self.driver.switch_to_frame(self.driver.find_element_by_id(self.iframeid))
@@ -29,7 +31,6 @@ class ConfirmationPopUp(QuickView):
         WebDriverWait(self.driver,10).until(EC.invisibility_of_element_located((By.ID,self.iframeid)))
 
     def assertconfirmoneitem(self):
-        skuname = self.openconfirmationpopuponeitem()
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH,self.confirmationmessagexpath)))
-        assert skuname in self.driver.find_element_by_xpath(self.firstskunameconfirmationmessagexpath).text
+        assert self.skuname in self.driver.find_element_by_xpath(self.firstskunameconfirmationmessagexpath).text
         self.driver.switch_to_default_content()
