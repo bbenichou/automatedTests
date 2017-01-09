@@ -1,4 +1,6 @@
 from Pages.ProductPage import *
+import unittest
+
 
 class productpage(unittest.TestCase, ProductPage):
 

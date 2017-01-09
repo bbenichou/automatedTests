@@ -1,7 +1,7 @@
 from Pages.ConfirmationpopuPage import *
 import unittest
 
-class confirmation(unittest.TestCase, ConfirmationPopUp):
+class confirmationpop(unittest.TestCase, ConfirmationPopUp):
     def test_confirmationpopup(self):
 
         #

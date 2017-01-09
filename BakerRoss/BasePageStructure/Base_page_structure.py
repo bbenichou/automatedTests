@@ -1,7 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.support.ui import WebDriverWait
-import logging
 import csv
 from bs4 import BeautifulSoup
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
@@ -9,21 +6,18 @@ import openpyxl
 import datetime
 import sys
 import os
-import unittest
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from io import StringIO
-from  TestsConfiguration.local_env import *
+from TestsConfiguration.local_env import *
+#import unittest
+#from selenium.webdriver.support import expected_conditions as EC
+#from selenium.webdriver.common.by import By
+#from io import StringIO
+#from selenium.webdriver import ActionChains
+#from selenium.webdriver.support.ui import WebDriverWait
+#import logging
 
 
 class BasePage(object):
 
-    def __init__(self, autotestenvironment, autotestenvchoice, user_catalogue, driver):
-        # Variables
-        self.autotestenvironment = autotestenvironment
-        self.autotestenvchoice = autotestenvchoice
-        self.user_catalogue = user_catalogue
-        self.driver = driver
     autotestenvironment = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\BakerRoss_env.xml'
     autotestenvchoice = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
     user_catalogue = localenv + '\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
@@ -41,6 +35,13 @@ class BasePage(object):
                 driver = webdriver.Ie(internetexplorerdriver)
 
     # Methods
+    def __init__(self, autotestenvironment, autotestenvchoice, user_catalogue, driver):
+        # Variables
+        self.autotestenvironment = autotestenvironment
+        self.autotestenvchoice = autotestenvchoice
+        self.user_catalogue = user_catalogue
+        self.driver = driver
+
     def getcountry(self):
         with open(self.autotestenvchoice, "r") as file:
             csv_reader = csv.DictReader(file)

@@ -1,5 +1,6 @@
 from BasePageStructure.Base_page_structure import *
 from Pages.ConfirmationpopuPage import *
+from selenium.webdriver import ActionChains
 
 class ProductPage(BasePage):
 
