@@ -1,6 +1,7 @@
 from Pages.QuickViewPage import *
 
 
+
 class ConfirmationPopUp(QuickView):
     # Variables
     iframeid = "fancybox-frame"
