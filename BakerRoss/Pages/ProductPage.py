@@ -1,5 +1,5 @@
 from BasePageStructure.Base_page_structure import *
-from Pages.ConfirmationpopuPage import *
+from Pages.ConfirmationpopuPage import ConfirmationPopUp
 from selenium.webdriver import ActionChains
 
 class ProductPage(BasePage):
@@ -11,27 +11,11 @@ class ProductPage(BasePage):
     # Locators
     addtobasketbuttonsClass = "btn-cart"
     itemstopcartXpath = "//*[@id='cartHeader']/span"
-    firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
-    firstBoxPPlinkXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/div[2]/form/a"
-    megamenufirstlinkXpath = "//*[@id='custommenu-nav']/li[1]/a[1]"
     continueshoppingbuttonXpath = "//*[@id='quickorder-continue-link']/span"
 
     # Assertions
 
-    # Actions
-    def gotoprodurl(self):
-        url = self.getdomain()
-        self.driver.get(url)
-        self.driver.maximize_window()
-        self.impwait()
-        self.driver.find_element_by_xpath(self.megamenufirstlinkXpath).click()
-        self.impwait()
-        firstBoxPP = self.driver.find_element_by_xpath(self.firstBoxPPimgXpath)
-        hover = ActionChains(self.driver).move_to_element(firstBoxPP)
-        hover.perform()
-        self.driver.find_element_by_xpath(self.firstBoxPPlinkXpath).click()
-        self.impwait()
-
+    # Action
     def addtobasket(self):
         addbuttons = self.driver.find_elements_by_class_name(self.addtobasketbuttonsClass)
         addbuttons_len = len(addbuttons)

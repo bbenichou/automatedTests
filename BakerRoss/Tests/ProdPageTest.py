@@ -7,7 +7,7 @@ class productpage(unittest.TestCase, ProductPage):
     def test_productpage(self):
 
         #go to the product page
-        ProductPage.gotoprodurl(self)
+        BasePage.gotoprodurl(self)
 
         # add each sku to the basket and check if the top cart is updated
         ProductPage.addtobasket(self)

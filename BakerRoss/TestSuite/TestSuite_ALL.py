@@ -14,9 +14,6 @@ class SuiteAll(BasePage):
     #group all tests variable into a suite
     all_tests = unittest.TestSuite([test1,test2,test3,test4])
 
-    # run the suite with default unittest
-    #unittest.TextTestRunner(verbosity=2).run(all_tests)
-
     #run the suite with htmltestrunner
 
     outfile = open(localenv + '\\automatedTests\\BakerRoss\\TestSuite\\TestResults\\Report_testSuiteAll.html', "w")

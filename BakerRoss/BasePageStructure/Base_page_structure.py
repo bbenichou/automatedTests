@@ -7,20 +7,28 @@ import datetime
 import sys
 import os
 from TestsConfiguration.local_env import *
+from selenium.webdriver import ActionChains
 #import unittest
 #from selenium.webdriver.support import expected_conditions as EC
 #from selenium.webdriver.common.by import By
 #from io import StringIO
-#from selenium.webdriver import ActionChains
 #from selenium.webdriver.support.ui import WebDriverWait
 #import logging
 
 
 class BasePage(object):
 
+    # environement and configuration files
     autotestenvironment = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\BakerRoss_env.xml'
     autotestenvchoice = localenv + '\\automatedTests\\BakerRoss\\TestsConfiguration\\env_choice.csv'
     user_catalogue = localenv + '\\automatedTests\\BakerRoss\\TestsData\\user_catalogue.csv'
+
+    # locators
+    #firstBoxPPimgXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/a[1]/img"
+    firstBoxPPimgXpath = "//*[@class='category-products']/ul[1]/li[1]/a[1]/img"
+    firstBoxPPlinkXpath = "//*[@id='page']/div[4]/div/div[4]/div[5]/div[6]/ul[1]/li[1]/div[2]/form/a"
+    megamenufirstlinkXpath = "//*[@id='custommenu-nav']/li[3]/a[1]"
+
     # Load the browser defined in env_choice
     with open(autotestenvchoice, "r") as file:
         csv_reader = csv.DictReader(file)
@@ -78,10 +86,37 @@ class BasePage(object):
                             return domain
 
     def gotourl(self, path):
-        #self.getdomain()
         url = self.getdomain() + path
         self.driver.get(url)
         self.driver.maximize_window()
+        self.impwait()
+
+    def gotolistingpagereview(self, pathwithreview):
+        url = self.getdomain() + pathwithreview
+        self.driver.get(url)
+        self.driver.maximize_window()
+        self.impwait()
+
+    def gotoprodurl(self):
+        url = self.getdomain()
+        self.driver.get(url)
+        self.driver.maximize_window()
+        self.impwait()
+        self.driver.find_element_by_xpath(self.megamenufirstlinkXpath).click()
+        self.impwait()
+        firstBoxPP = self.driver.find_element_by_xpath(self.firstBoxPPimgXpath)
+        hover = ActionChains(self.driver).move_to_element(firstBoxPP)
+        hover.perform()
+        self.driver.find_element_by_xpath(self.firstBoxPPlinkXpath).click()
+        self.impwait()
+
+    def gotolistingpage(self):
+        self.getdomain()
+        url = self.getdomain()
+        self.driver.get(url)
+        self.driver.maximize_window()
+        self.impwait()
+        self.driver.find_element_by_xpath(self.megamenufirstlinkXpath).click()
         self.impwait()
 
     def getloginvalue(self):
